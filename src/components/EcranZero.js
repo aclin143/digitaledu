@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const images = [
     "/images/police.png",
@@ -21,7 +23,7 @@ const bgIcons = [
 
 export default function EcranZero() {
     const [index, setIndex] = useState(0);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const i = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length);
@@ -121,7 +123,7 @@ export default function EcranZero() {
                         })}
 
                         {/* BUTTON CENTRAL */}
-                        <button
+                        <button     onClick={() => navigate("/identitate")}
                             className="
                 relative z-10
                 px-12 py-4 rounded-full font-semibold text-lg
