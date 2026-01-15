@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {useNavigate} from "react-router-dom";
 import { db } from "../firebase";
 
 export default function EcranUnu() {
@@ -14,7 +15,7 @@ export default function EcranUnu() {
     const [submitStatus, setSubmitStatus] = useState("idle");
     const [hasSignature, setHasSignature] = useState(false);
     const [isHovered, setIsHovered] = useState(null);
-
+   const navigate = useNavigate();
     const canvasRef = useRef(null);
     const drawing = useRef(false);
 
@@ -277,8 +278,13 @@ export default function EcranUnu() {
                     </div>
 
                     <button
-                        onClick={saveToFirebase}
-                            disabled={!isValid}
+                        onClick={async () => {
+                            await saveToFirebase();
+                            navigate("/formular");
+                        }}
+
+
+                        disabled={!isValid}
                         className={`relative px-14 py-4 font-black uppercase text-[11px] tracking-[0.5em] transition-all duration-500
                             ${isValid
                             ? "bg-[#EEEEEE] text-[#0F044C] hover:bg-white hover:px-16 hover:shadow-[0_0_30px_rgba(238,238,238,0.3)] active:scale-95"
