@@ -81,11 +81,14 @@ export default function EcranUnu() {
 
         const signatureBase64 = canvasRef.current.toDataURL("image/png");
 
-        await addDoc(collection(db, "pasapoarteCivice"), {
+        const docRef = await addDoc(collection(db, "pasapoarteCivice"), {
             ...form,
             signature: signatureBase64,
             createdAt: serverTimestamp(),
         });
+
+        localStorage.setItem("pasaportId", docRef.id);
+
 
         setSubmitStatus("success");
 
