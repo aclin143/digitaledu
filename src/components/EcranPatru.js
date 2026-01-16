@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Shuffle, CheckCircle2, XCircle, ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * ECRANUL 4 – DREPTURI SI RESPONSABILITATI (INTERACTIV)
@@ -12,7 +12,7 @@ import { Shuffle, CheckCircle2, XCircle, ArrowLeft, ArrowRight, BookOpen } from 
  * - Poti completa usor textele pentru cazurile 1-4 in obiectul CASES.
  */
 
-const NEXT_ROUTE = "/ecrancin"; // schimba aici ruta urmatoare daca ai alta (ex: "/ecranCinci")
+const NEXT_ROUTE = "/ecrancinci"; // schimba aici ruta urmatoare daca ai alta (ex: "/ecranCinci")
 
 /* ------------------------- helpers ------------------------- */
 function shuffle(arr) {
@@ -844,6 +844,7 @@ const EcranPatru = () => {
     const [answers, setAnswers] = useState({});
     const [checked, setChecked] = useState(false);
 
+
     // shuffle options per question (stable)
     const shuffledOptions = useMemo(() => {
         const map = {};
@@ -882,7 +883,7 @@ const EcranPatru = () => {
 
     const goNext = () => {
         if (pageIndex < totalPages - 1) setPageIndex((p) => p + 1);
-        else navigate(NEXT_ROUTE);
+        else navigate("/ecrancinci");
     };
 
     const goBack = () => {
@@ -1137,7 +1138,7 @@ const EcranPatru = () => {
                                     onClick={goNext}
                                     disabled={!checked || !isPageAllCorrect}
                                     className={`inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-bold uppercase text-[11px] tracking-[0.25em] transition-all duration-300 active:scale-95
-                    ${checked && isPageAllCorrect
+        ${checked && isPageAllCorrect
                                         ? "bg-[#0F044C] text-[#EEEEEE] hover:shadow-[0_12px_30px_rgba(15,4,76,0.25)]"
                                         : "bg-[#0F044C]/10 text-[#0F044C]/30 cursor-not-allowed"
                                     }`}
@@ -1145,6 +1146,8 @@ const EcranPatru = () => {
                                     {pageIndex === totalPages - 1 ? "Final" : "Următorul"}
                                     <ArrowRight size={16} />
                                 </button>
+
+
                             </div>
 
                             <p className="text-xs text-[#787A91] leading-relaxed mt-2">

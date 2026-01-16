@@ -4,6 +4,7 @@ import EcranUnu from "./components/EcranUnu";
 import EcranDoi from "./components/EcranDoi";
 import EcranTrei from "./components/EcranTrei";
 import EcranPatru from "./components/EcranPatru";
+import EcranCinci from "./components/EcranCinci";
 function App() {
     return (
         <BrowserRouter>
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/formular" element={<EcranDoi/>}/>
                 <Route path="ecrantrei" element={<EcranTrei/>}/>
                 <Route path="/ecranpatru" element={<EcranPatru/>}/>
+                <Route path="/ecrancinci" element={<EcranCinci/>}/>
             </Routes>
         </BrowserRouter>
     );
