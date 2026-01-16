@@ -116,9 +116,10 @@ export default function EcranCinci() {
         setDragged(null);
     };
 
-    const allCorrect =
-        Object.keys(matches).length === ROLES.length &&
-        ROLES.every((r) => matches[r.id] === r.text);
+    const allCorrect = ROLES.some(
+        (r) => matches[r.id] === r.text
+    );
+
 
     return (
         <div className="min-h-screen p-10 bg-gradient-to-br from-[#EEEEEE] to-[#E2E8F0]">
