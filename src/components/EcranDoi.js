@@ -62,7 +62,7 @@ const EcranDoi = () => {
                 {/* BUTON FOOTER MINIMALIST */}
                 <div className="mt-20 flex justify-center md:justify-end">
                     <button
-                        onClick={() => navigate("/nivelul-urmator")}
+                        onClick={() => navigate("/ecrantrei")}
                         className="group relative overflow-hidden bg-[#0F044C] text-[#EEEEEE] px-12 py-5 rounded-2xl font-bold uppercase text-xs tracking-[0.3em] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(15,4,76,0.3)] active:scale-95"
                     >
                         <span className="relative z-10">Continuă Explorarea</span>
