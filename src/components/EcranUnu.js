@@ -56,10 +56,16 @@ export default function EcranUnu() {
     };
 
     const isValid =
-        Object.values(form)
-            .filter(v => v !== null)
-            .every(v => v.toString().trim().length > 1) &&
+        form.fullName.trim().length > 3 &&
+        Number(form.age) >= 6 &&
+        Number(form.age) <= 18 &&
+        form.className.trim().length > 1 &&
+        form.community.trim().length > 2 &&
+        form.citizenMeaning.trim().length > 10 &&
+        form.responsibility >= 1 &&
+        form.responsibility <= 10 &&
         hasSignature;
+
 
 
 
