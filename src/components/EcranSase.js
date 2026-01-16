@@ -35,7 +35,6 @@ const ROLES = [
 
 export default function Ecran6() {
     const navigate = useNavigate();
-
     const [role, setRole] = useState("");
     const [invatare, setInvatare] = useState("");
 

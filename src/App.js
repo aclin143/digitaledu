@@ -6,6 +6,7 @@ import EcranTrei from "./components/EcranTrei";
 import EcranPatru from "./components/EcranPatru";
 import EcranCinci from "./components/EcranCinci";
 import EcranSase from "./components/EcranSase";
+import EcranSapte from "./components/EcranSapte";
 function App() {
     return (
         <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/ecranpatru" element={<EcranPatru/>}/>
                 <Route path="/ecrancinci" element={<EcranCinci/>}/>
                 <Route path="/ecran6" element={<EcranSase/>}/>
+                <Route path="/ecran7" element={<EcranSapte/>}/>
             </Routes>
         </BrowserRouter>
     );
