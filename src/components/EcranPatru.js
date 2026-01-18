@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
  * - Poti completa usor textele pentru cazurile 1-4 in obiectul CASES.
  */
 
-const NEXT_ROUTE = "/ecrancinci"; // schimba aici ruta urmatoare daca ai alta (ex: "/ecranCinci")
 
 /* ------------------------- helpers ------------------------- */
 function shuffle(arr) {
