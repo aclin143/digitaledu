@@ -87,6 +87,11 @@ export default function EcranUnu() {
             createdAt: serverTimestamp(),
         });
 
+// 🔑 CHEI CORECTE
+        localStorage.setItem("pasaportId", docRef.id);
+        localStorage.setItem("copilFullName", form.fullName);
+
+
         localStorage.setItem("pasaportId", docRef.id);
 
 

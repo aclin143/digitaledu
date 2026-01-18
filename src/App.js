@@ -9,6 +9,7 @@ import EcranCinci from "./components/EcranCinci";
 import EcranSase from "./components/EcranSase";
 import EcranSapte from "./components/EcranSapte";
 import EcranOpt from "./components/EcranOpt";
+import Diploma from "./components/Diploma";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,10 +19,8 @@ function App() {
         <BrowserRouter>
             <div className="flex flex-col min-h-screen">
 
-                {/* HEADER GLOBAL */}
                 <Header />
 
-                {/* CONȚINUT PAGINI */}
                 <main className="flex-grow">
                     <Routes>
                         <Route path="/" element={<EcranZero />} />
@@ -33,10 +32,10 @@ function App() {
                         <Route path="/ecran6" element={<EcranSase />} />
                         <Route path="/ecran7" element={<EcranSapte />} />
                         <Route path="/ecran8" element={<EcranOpt />} />
+                        <Route path="/diploma" element={<Diploma />} />
                     </Routes>
                 </main>
 
-                {/* FOOTER GLOBAL */}
                 <Footer />
 
             </div>
