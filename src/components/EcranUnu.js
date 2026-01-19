@@ -248,10 +248,19 @@ export default function EcranUnu() {
                             </div>
                             <div className="relative group bg-[#02040A] border border-[#787A91]/30 hover:border-[#EEEEEE]/40 transition-colors duration-500">
                                 <canvas
-                                    ref={canvasRef} width={500} height={180}
-                                    className="w-full cursor-crosshair opacity-80 group-hover:opacity-100"
-                                    onMouseDown={start} onMouseMove={draw} onMouseUp={stop} onMouseLeave={stop}
+                                    ref={canvasRef}
+                                    width={500}
+                                    height={180}
+                                    className="w-full cursor-crosshair opacity-80 group-hover:opacity-100 touch-none"
+                                    onMouseDown={start}
+                                    onMouseMove={draw}
+                                    onMouseUp={stop}
+                                    onMouseLeave={stop}
+                                    onTouchStart={start}
+                                    onTouchMove={draw}
+                                    onTouchEnd={stop}
                                 />
+
                                 {!hasSignature && (
                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                                         <span className="text-[10px] tracking-[1.5em] uppercase font-thin text-[#787A91] animate-pulse">Confirmare Manuală</span>
