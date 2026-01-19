@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     GripVertical,
@@ -111,6 +111,15 @@ export default function EcranCinci() {
     const [selectedText, setSelectedText] = useState(null);
     const [matches, setMatches] = useState({});
 
+    /* 🔹 texte deja folosite */
+    const usedTexts = Object.values(matches);
+
+    /* 🔹 texte rămase (doar acestea apar în stânga) */
+    const availableTexts = useMemo(
+        () => ROLES.filter((r) => !usedTexts.includes(r.text)),
+        [usedTexts]
+    );
+
     const allCorrect =
         ROLES.every((r) => matches[r.id] === r.text);
 
@@ -135,12 +144,12 @@ export default function EcranCinci() {
 
                     {/* LEFT – DESCRIPTIONS */}
                     <div className="space-y-4">
-                        {ROLES.map((r) => (
+                        {availableTexts.map((r) => (
                             <div
                                 key={r.text}
                                 onClick={() => setSelectedText(r.text)}
                                 className={`flex items-start gap-3 p-4 rounded-xl shadow cursor-pointer transition
-                  ${
+                                    ${
                                     selectedText === r.text
                                         ? "bg-[#0F044C] text-white scale-[1.02]"
                                         : "bg-white hover:bg-slate-100"
@@ -150,6 +159,12 @@ export default function EcranCinci() {
                                 <p className="text-sm">{r.text}</p>
                             </div>
                         ))}
+
+                        {availableTexts.length === 0 && (
+                            <div className="text-center text-sm text-[#787A91] italic">
+                                Toate descrierile au fost plasate
+                            </div>
+                        )}
                     </div>
 
                     {/* RIGHT – ROLE CARDS */}
@@ -162,7 +177,8 @@ export default function EcranCinci() {
                                 <div
                                     key={r.id}
                                     onClick={() => {
-                                        if (!selectedText) return;
+                                        if (!selectedText || placed) return;
+
                                         setMatches((prev) => ({
                                             ...prev,
                                             [r.id]: selectedText,
@@ -170,8 +186,8 @@ export default function EcranCinci() {
                                         setSelectedText(null);
                                     }}
                                     className={`p-3 sm:p-4 rounded-2xl border-2 transition cursor-pointer
-                    min-h-[260px] flex flex-col justify-between
-                    ${
+                                        min-h-[260px] flex flex-col justify-between
+                                        ${
                                         placed
                                             ? correct
                                                 ? "border-emerald-500 bg-emerald-50"
@@ -209,8 +225,8 @@ export default function EcranCinci() {
                     onClick={() => navigate("/ecran6")}
                     disabled={!allCorrect}
                     className={`mt-12 mx-auto flex items-center gap-3 px-12 py-5 rounded-2xl
-            font-black uppercase text-[11px] tracking-[0.35em] transition
-            ${
+                        font-black uppercase text-[11px] tracking-[0.35em] transition
+                        ${
                         allCorrect
                             ? "bg-[#0F044C] text-[#EEEEEE] hover:shadow-[0_15px_40px_rgba(15,4,76,0.35)]"
                             : "bg-[#0F044C]/20 text-[#0F044C]/40 cursor-not-allowed"
