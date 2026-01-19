@@ -111,17 +111,22 @@ export default function EcranCinci() {
     const [selectedText, setSelectedText] = useState(null);
     const [matches, setMatches] = useState({});
 
-    /* 🔹 texte deja folosite */
-    const usedTexts = Object.values(matches);
-
-    /* 🔹 texte rămase (doar acestea apar în stânga) */
-    const availableTexts = useMemo(
-        () => ROLES.filter((r) => !usedTexts.includes(r.text)),
-        [usedTexts]
+    /* 🔹 texte puse CORECT (doar acestea dispar) */
+    const correctlyUsedTexts = useMemo(
+        () =>
+            Object.entries(matches)
+                .filter(([id, text]) => {
+                    const role = ROLES.find((r) => r.id === id);
+                    return role && role.text === text;
+                })
+                .map(([, text]) => text),
+        [matches]
     );
 
-    const allCorrect =
-        ROLES.every((r) => matches[r.id] === r.text);
+    /* 🔹 texte disponibile */
+    const availableTexts = ROLES.filter(
+        (r) => !correctlyUsedTexts.includes(r.text)
+    );
 
     return (
         <div className="min-h-screen px-6 py-10 bg-gradient-to-br from-[#EEEEEE] to-[#E2E8F0]">
@@ -135,7 +140,7 @@ export default function EcranCinci() {
                             Justiția pe înțelesul meu
                         </h1>
                         <p className="text-[#787A91]">
-                            Alege o descriere și apasă pe rolul corect
+                            Alege o descriere și apasă pe rolul potrivit
                         </p>
                     </div>
                 </div>
@@ -159,12 +164,6 @@ export default function EcranCinci() {
                                 <p className="text-sm">{r.text}</p>
                             </div>
                         ))}
-
-                        {availableTexts.length === 0 && (
-                            <div className="text-center text-sm text-[#787A91] italic">
-                                Toate descrierile au fost plasate
-                            </div>
-                        )}
                     </div>
 
                     {/* RIGHT – ROLE CARDS */}
@@ -177,7 +176,7 @@ export default function EcranCinci() {
                                 <div
                                     key={r.id}
                                     onClick={() => {
-                                        if (!selectedText || placed) return;
+                                        if (!selectedText) return;
 
                                         setMatches((prev) => ({
                                             ...prev,
@@ -220,17 +219,14 @@ export default function EcranCinci() {
                     </div>
                 </div>
 
-                {/* NEXT BUTTON */}
+                {/* NEXT BUTTON – MEREU ACTIV */}
                 <button
                     onClick={() => navigate("/ecran6")}
-                    disabled={!allCorrect}
-                    className={`mt-12 mx-auto flex items-center gap-3 px-12 py-5 rounded-2xl
-                        font-black uppercase text-[11px] tracking-[0.35em] transition
-                        ${
-                        allCorrect
-                            ? "bg-[#0F044C] text-[#EEEEEE] hover:shadow-[0_15px_40px_rgba(15,4,76,0.35)]"
-                            : "bg-[#0F044C]/20 text-[#0F044C]/40 cursor-not-allowed"
-                    }`}
+                    className="mt-12 mx-auto flex items-center gap-3 px-12 py-5 rounded-2xl
+                        font-black uppercase text-[11px] tracking-[0.35em]
+                        bg-[#0F044C] text-[#EEEEEE]
+                        hover:shadow-[0_15px_40px_rgba(15,4,76,0.35)]
+                        transition"
                 >
                     Nivelul următor
                     <ArrowRight size={18} />
