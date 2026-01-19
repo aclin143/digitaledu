@@ -107,56 +107,53 @@ const ROLES = [
 
 export default function EcranCinci() {
     const navigate = useNavigate();
-    const [dragged, setDragged] = useState(null);
+
+    const [selectedText, setSelectedText] = useState(null);
     const [matches, setMatches] = useState({});
 
-    const onDrop = (id) => {
-        if (!dragged) return;
-        setMatches((prev) => ({ ...prev, [id]: dragged }));
-        setDragged(null);
-    };
-
-    const allCorrect = ROLES.some(
-        (r) => matches[r.id] === r.text
-    );
-
+    const allCorrect =
+        ROLES.every((r) => matches[r.id] === r.text);
 
     return (
-        <div className="min-h-screen p-10 bg-gradient-to-br from-[#EEEEEE] to-[#E2E8F0]">
+        <div className="min-h-screen px-6 py-10 bg-gradient-to-br from-[#EEEEEE] to-[#E2E8F0]">
             <div className="max-w-7xl mx-auto">
 
                 {/* HEADER */}
                 <div className="flex items-center gap-4 mb-8">
                     <Scale size={40} className="text-[#0F044C]" />
                     <div>
-                        <h1 className="text-4xl font-black text-[#0F044C]">
+                        <h1 className="text-3xl sm:text-4xl font-black text-[#0F044C]">
                             Justiția pe înțelesul meu
                         </h1>
                         <p className="text-[#787A91]">
-                            Trage descrierea corectă peste fiecare rol
+                            Alege o descriere și apasă pe rolul corect
                         </p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10">
 
-                    {/* LEFT – TEXTS */}
+                    {/* LEFT – DESCRIPTIONS */}
                     <div className="space-y-4">
                         {ROLES.map((r) => (
                             <div
                                 key={r.text}
-                                draggable
-                                onDragStart={() => setDragged(r.text)}
-                                className="flex items-start gap-3 p-4 bg-white rounded-xl shadow cursor-grab active:scale-95 transition"
+                                onClick={() => setSelectedText(r.text)}
+                                className={`flex items-start gap-3 p-4 rounded-xl shadow cursor-pointer transition
+                  ${
+                                    selectedText === r.text
+                                        ? "bg-[#0F044C] text-white scale-[1.02]"
+                                        : "bg-white hover:bg-slate-100"
+                                }`}
                             >
-                                <GripVertical className="text-[#787A91] mt-1" />
+                                <GripVertical className="mt-1 opacity-50" />
                                 <p className="text-sm">{r.text}</p>
                             </div>
                         ))}
                     </div>
 
-                    {/* RIGHT – CARDS */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    {/* RIGHT – ROLE CARDS */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {ROLES.map((r) => {
                             const placed = matches[r.id];
                             const correct = placed === r.text;
@@ -164,28 +161,36 @@ export default function EcranCinci() {
                             return (
                                 <div
                                     key={r.id}
-                                    onDragOver={(e) => e.preventDefault()}
-                                    onDrop={() => onDrop(r.id)}
-                                    className={`p-4 rounded-2xl border-2 transition
+                                    onClick={() => {
+                                        if (!selectedText) return;
+                                        setMatches((prev) => ({
+                                            ...prev,
+                                            [r.id]: selectedText,
+                                        }));
+                                        setSelectedText(null);
+                                    }}
+                                    className={`p-3 sm:p-4 rounded-2xl border-2 transition cursor-pointer
+                    min-h-[260px] flex flex-col justify-between
                     ${
                                         placed
                                             ? correct
                                                 ? "border-emerald-500 bg-emerald-50"
                                                 : "border-rose-500 bg-rose-50"
-                                            : "border-dashed border-[#787A91]/40 bg-white/80"
+                                            : "border-dashed border-[#787A91]/40 bg-white"
                                     }`}
                                 >
                                     <img
                                         src={r.image}
                                         alt={r.label}
-                                        className="h-32 mx-auto mb-3 object-contain"
+                                        className="h-24 sm:h-32 mx-auto object-contain"
                                     />
-                                    <h3 className="text-center font-black text-sm mb-2">
+
+                                    <h3 className="text-center font-black text-sm mt-2">
                                         {r.label}
                                     </h3>
 
-                                    <div className="text-xs text-center min-h-[60px]">
-                                        {placed || "Trage descrierea aici"}
+                                    <div className="text-xs text-center mt-2 min-h-[60px]">
+                                        {placed || "Apasă pentru a plasa descrierea"}
                                     </div>
 
                                     {correct && (
@@ -203,7 +208,8 @@ export default function EcranCinci() {
                 <button
                     onClick={() => navigate("/ecran6")}
                     disabled={!allCorrect}
-                    className={`mt-12 mx-auto flex items-center gap-3 px-14 py-5 rounded-2xl font-black uppercase text-[11px] tracking-[0.4em] transition
+                    className={`mt-12 mx-auto flex items-center gap-3 px-12 py-5 rounded-2xl
+            font-black uppercase text-[11px] tracking-[0.35em] transition
             ${
                         allCorrect
                             ? "bg-[#0F044C] text-[#EEEEEE] hover:shadow-[0_15px_40px_rgba(15,4,76,0.35)]"
