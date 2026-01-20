@@ -58,18 +58,20 @@ export default function Diploma() {
 
                     {/* NUME COPIL */}
                     <div
-                        className="absolute font-black text-[#0F044C]"
+                        className="
+    absolute font-black text-[#0F044C] whitespace-nowrap
+    text-[9px] sm:text-[12px] md:text-[20px] lg:text-[24px]
+    tracking-[0.1em]
+  "
                         style={{
-                            top: "48%",
+                            top: "49%",
                             left: "50%",
                             transform: "translate(-50%, -50%)",
-                            fontSize: "32px",
-                            letterSpacing: "0.1em",
-                            whiteSpace: "nowrap",
                         }}
                     >
                         {numeCopil ? numeCopil.toUpperCase() : "—"}
                     </div>
+
                 </div>
             </div>
 

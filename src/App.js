@@ -10,13 +10,14 @@ import EcranSase from "./components/EcranSase";
 import EcranSapte from "./components/EcranSapte";
 import EcranOpt from "./components/EcranOpt";
 import Diploma from "./components/Diploma";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop/>
             <div className="flex flex-col min-h-screen">
 
                 <Header />

@@ -58,10 +58,10 @@ export default function EcranUnu() {
     const isValid =
         form.fullName.trim().length > 3 &&
         Number(form.age) >= 6 &&
-        Number(form.age) <= 18 &&
+        Number(form.age) <= 100 &&
         form.className.trim().length > 1 &&
         form.community.trim().length > 2 &&
-        form.citizenMeaning.trim().length > 10 &&
+        form.citizenMeaning.trim().length > 2 &&
         form.responsibility >= 1 &&
         form.responsibility <= 10 &&
         hasSignature;
@@ -113,13 +113,36 @@ export default function EcranUnu() {
                      style={{ backgroundImage: `linear-gradient(#787A91 1px, transparent 1px), linear-gradient(90deg, #787A91 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
                 {/* ANTET GUVERNAMENTAL */}
-                <header className="relative z-10 grid grid-cols-[180px_1fr_180px] items-center px-10 py-8 border-b border-[#787A91]/30 bg-gradient-to-b from-[#141E61]/50 to-transparent">
-                    <img src="/images/legisland.png" className="h-12 w-auto object-contain brightness-125" alt="Legisland" />
+                <header className="
+  relative z-10
+  grid grid-cols-1
+  sm:grid-cols-[120px_1fr_120px]
+  lg:grid-cols-[180px_1fr_180px]
+  gap-4
+  items-center
+  px-5 sm:px-8 lg:px-10
+  py-5 sm:py-6 lg:py-8
+  border-b border-[#787A91]/30
+  bg-gradient-to-b from-[#141E61]/50 to-transparent
+">
+
+                    <img
+                        src="/images/legisland.png"
+                        className="h-10 sm:h-12 mx-auto sm:mx-0"
+                        alt="Legisland"
+                    />
+
 
                     <div className="text-center">
-                        <h1 className="text-[12px] tracking-[0.8em] uppercase font-black text-[#EEEEEE] drop-shadow-[0_0_10px_rgba(238,238,238,0.4)]">
+                        <h1 className="
+  text-[11px] sm:text-[12px]
+  tracking-[0.5em] sm:tracking-[0.8em]
+  uppercase font-black text-[#EEEEEE]
+  text-center
+">
                             Pașaport Civic Digital
                         </h1>
+
                         <div className="flex items-center justify-center gap-4 mt-2">
                             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#787A91]" />
                             <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#787A91]">Status: Validare Identitate</p>
@@ -127,14 +150,19 @@ export default function EcranUnu() {
                         </div>
                     </div>
 
-                    <img src="/images/nicolae-iorga.png" className="h-14 w-auto object-contain ml-auto transition-all duration-500" alt="Nicolae Iorga" />
+                    <img
+                        src="/images/nicolae-iorga.png"
+                        className="h-12 sm:h-14 mx-auto sm:ml-auto"
+                        alt="Nicolae Iorga"
+                    />
+
                 </header>
 
                 {/* CORP DOCUMENT */}
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[340px_1fr] divide-y lg:divide-y-0 lg:divide-x divide-[#787A91]/20">
 
                     {/* LEFT PANEL: BIOMETRICS */}
-                    <div className="p-10 space-y-8 bg-black/30">
+                    <div className="p-5 sm:p-8 lg:p-10 space-y-8 bg-black/30">
                         <div
                             className="relative group cursor-none"
                             onMouseEnter={() => setIsHovered('photo')}
@@ -161,7 +189,7 @@ export default function EcranUnu() {
                         <div className="space-y-6">
                             <Field label="Titular Document" active={isHovered === 'name'}>
                                 <Input
-                                    placeholder="Nume Prenume"
+                                    placeholder="Prenume"
                                     value={form.fullName}
                                     onChange={v => setField("fullName", v)}
                                     onFocus={() => setIsHovered('name')}
@@ -172,7 +200,7 @@ export default function EcranUnu() {
                             <div className="grid grid-cols-2 gap-6">
                                 <Field label="Vârstă" active={isHovered === 'age'}>
                                     <Input
-                                        placeholder="16"
+                                        placeholder="10"
                                         value={form.age}
                                         onChange={v => setField("age", v)}
                                         onFocus={() => setIsHovered('age')}
@@ -203,7 +231,7 @@ export default function EcranUnu() {
                     </div>
 
                     {/* RIGHT PANEL: DECLARATION */}
-                    <div className="p-10 space-y-10 bg-gradient-to-br from-transparent to-[#141E61]/10">
+                    <div className="p-5 sm:p-8 lg:p-10 space-y-10 bg-gradient-to-br from-transparent to-[#141E61]/10">
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <label className="text-[15px] tracking-[0.5em] uppercase font-black text-[#fff]">Ce inseamna a fi cetatean?</label>
@@ -228,7 +256,7 @@ export default function EcranUnu() {
                                     <button
                                         key={i}
                                         onClick={() => setField("responsibility", i + 1)}
-                                        className={`flex-1 py-3 text-xs font-bold transition-all duration-300 border ${
+                                        className={`flex-1 py-5 sm:py-6 lg:py-8 text-xs font-bold transition-all duration-300 border ${
                                             form.responsibility === i + 1
                                                 ? 'bg-[#EEEEEE] text-[#0F044C] border-[#EEEEEE] shadow-[0_0_15px_#EEEEEE]'
                                                 : 'bg-[#141E61]/30 text-[#787A91] border-[#787A91]/20 hover:border-[#EEEEEE]/50'
@@ -249,9 +277,9 @@ export default function EcranUnu() {
                             <div className="relative group bg-[#02040A] border border-[#787A91]/30 hover:border-[#EEEEEE]/40 transition-colors duration-500">
                                 <canvas
                                     ref={canvasRef}
-                                    width={500}
-                                    height={180}
-                                    className="w-full cursor-crosshair opacity-80 group-hover:opacity-100 touch-none"
+                                    width={window.innerWidth < 640 ? 320 : 500}
+                                    height={window.innerWidth < 640 ? 140 : 180}
+                                    className="w-full max-w-full cursor-crosshair opacity-80 group-hover:opacity-100 touch-none"
                                     onMouseDown={start}
                                     onMouseMove={draw}
                                     onMouseUp={stop}
@@ -260,6 +288,7 @@ export default function EcranUnu() {
                                     onTouchMove={draw}
                                     onTouchEnd={stop}
                                 />
+
 
                                 {!hasSignature && (
                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -272,7 +301,7 @@ export default function EcranUnu() {
                 </div>
 
                 {/* MACHINE READABLE ZONE */}
-                <div className="bg-[#000000] px-10 py-6 border-t border-[#787A91]/20 group">
+                <div className="bg-[#000000] px-5 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-8 border-t border-[#787A91]/20 group">
                     <div className="font-mono text-[13px] tracking-[0.4em] text-[#787A91] group-hover:text-[#EEEEEE]/50 transition-colors duration-700 leading-loose break-all">
                         P&lt;ROU&lt;
                         {(
@@ -292,7 +321,7 @@ export default function EcranUnu() {
 
 
                 {/* FOOTER ACTIONS */}
-                <footer className="px-10 py-6 border-t border-[#787A91]/20 bg-[#141E61]/40 flex justify-between items-center">
+                <footer className="px-5 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-8 border-t border-[#787A91]/20 bg-[#141E61]/40 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <div className={`h-2 w-2 rounded-full ${isValid ? 'bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]' : 'bg-red-500 shadow-[0_0_8px_rgba(239,44,44,0.4)]'}`} />
                         <span className="text-[10px] font-mono tracking-widest text-[#787A91]">

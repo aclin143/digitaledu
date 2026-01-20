@@ -64,7 +64,7 @@ export default function Ecran7() {
         checked.length > 0 && completedCount === checked.length;
 
     return (
-        <div className="min-h-screen p-8 md:p-20 text-[#0F044C]"
+        <div className="min-h-screen p-5 sm:p-8 md:p-20 text-[#0F044C]"
              style={{
                  background:
                      "radial-gradient(circle at 20% 10%, rgba(15,4,76,0.10) 0%, transparent 55%), radial-gradient(circle at 80% 0%, rgba(20,30,97,0.12) 0%, transparent 60%), linear-gradient(135deg, #EEEEEE 0%, #E2E8F0 100%)",
@@ -74,16 +74,18 @@ export default function Ecran7() {
 
                 {/* HEADER */}
                 <header className="bg-white/75 backdrop-blur-md border border-white rounded-[2rem] p-8 shadow-[0_18px_50px_rgba(15,4,76,0.08)]">
-                    <div className="flex items-start justify-between gap-6">
-                        <div>
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+
+                    <div>
                             <div className="inline-flex items-center gap-2 text-[#141E61]">
                                 <Sparkles size={18} />
                                 <span className="uppercase text-xs font-black tracking-[0.35em]">
                   Valori democratice
                 </span>
                             </div>
-                            <h1 className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-[#0F044C]">
-                                Ecranul 7
+                        <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#0F044C]">
+
+                        Ecranul 7
                             </h1>
                             <p className="mt-3 text-[#787A91] text-lg max-w-3xl leading-relaxed">
                                 Bifează valorile pe care le-ai folosit și scrie un argument scurt pentru fiecare.
@@ -91,8 +93,15 @@ export default function Ecran7() {
                         </div>
 
                         {/* PROGRESS BADGE */}
-                        <div className="min-w-[220px] rounded-2xl border border-white bg-[#0F044C] text-white p-5 shadow-[0_18px_45px_rgba(15,4,76,0.25)]">
-                            <p className="text-[10px] uppercase font-black tracking-[0.35em] opacity-80">
+                        <div className="
+  w-full md:min-w-[220px]
+  rounded-2xl border border-white
+  bg-[#0F044C] text-white
+  p-5
+  shadow-[0_18px_45px_rgba(15,4,76,0.25)]
+">
+
+                        <p className="text-[10px] uppercase font-black tracking-[0.35em] opacity-80">
                                 progres argumentare
                             </p>
                             <div className="mt-2 flex items-end justify-between">

@@ -31,7 +31,9 @@ export default function EcranZero() {
         return () => clearInterval(i);
     }, []);
 
-    const radius = 260;
+    const isMobile = window.innerWidth < 640;
+    const radius = isMobile ? 145 : 260;
+
 
     return (
         <div
@@ -93,8 +95,15 @@ export default function EcranZero() {
 
                 {/* CAROUSEL AREA — separat ca să NU interfereze cu textul */}
                 <div className="mt-32 flex justify-center">
-                    <div className="relative w-[520px] h-[520px] flex items-center justify-center">
-                        {/* HALO */}
+                    <div className="
+  relative
+  w-[340px] h-[340px]
+  sm:w-[420px] sm:h-[420px]
+  md:w-[520px] md:h-[520px]
+  flex items-center justify-center
+">
+
+                    {/* HALO */}
                         <div className="absolute inset-10 rounded-full border border-[#141E61] opacity-45" />
 
                         {images.map((src, i) => {
@@ -109,7 +118,11 @@ export default function EcranZero() {
                                     src={src}
                                     alt=""
                                     className={`
-                    absolute w-48 h-48 md:w-52 md:h-52 rounded-full
+                    absolute
+w-28 h-28
+sm:w-36 sm:h-36
+md:w-48 md:h-48
+
                     transition-all duration-700
                     ${active ? "scale-125 opacity-100" : "scale-90 opacity-45"}
                   `}
