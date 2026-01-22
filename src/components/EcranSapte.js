@@ -85,7 +85,7 @@ export default function Ecran7() {
                             </div>
                         <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#0F044C]">
 
-                        Ecranul 7
+                        Nivelul 7
                             </h1>
                             <p className="mt-3 text-[#787A91] text-lg max-w-3xl leading-relaxed">
                                 Bifează valorile pe care le-ai folosit și scrie un argument scurt pentru fiecare.

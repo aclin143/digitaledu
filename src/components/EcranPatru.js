@@ -905,7 +905,7 @@ const EcranPatru = () => {
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-3" style={{ color: "#0F044C" }}>
-                                Ecranul 4 – Drepturi & Responsabilități
+                                Nivelul 4 – Drepturi & Responsabilități
                             </h2>
                             <p className="text-[#787A91] text-lg md:text-xl max-w-3xl leading-relaxed">
                                 Completează cazul ales aleator, apoi răspunde la întrebări pe 3 pagini.

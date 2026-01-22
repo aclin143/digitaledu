@@ -69,7 +69,7 @@ export default function Ecran6() {
                 {/* HEADER */}
                 <header>
                     <h1 className="text-4xl md:text-5xl font-black text-[#0F044C] mb-4">
-                        Ecranul 6 – EU ÎN ROL CIVIC
+                        Nivelul 6 – EU ÎN ROL CIVIC
                     </h1>
                     <p className="text-[#787A91] text-lg max-w-3xl">
                         Alege rolul pe care l-ai jucat și răspunde la întrebări.

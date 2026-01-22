@@ -64,8 +64,8 @@ export default function Diploma() {
     tracking-[0.1em]
   "
                         style={{
-                            top: "49%",
-                            left: "50%",
+                            top: "48.67%",
+                            left: "70%",
                             transform: "translate(-50%, -50%)",
                         }}
                     >

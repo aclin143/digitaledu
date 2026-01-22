@@ -34,7 +34,7 @@ export default function Ecran8() {
                         <ShieldCheck size={36} className="text-[#0F044C]" />
                         <div>
                             <h1 className="text-4xl font-black tracking-tight">
-                                Ecranul 8 – Angajament Civic Digital
+                                Nivelul 8 – Angajament Civic Digital
                             </h1>
                             <p className="text-[#787A91] mt-2 text-lg">
                                 Confirmarea finală înainte de diplomă
@@ -125,7 +125,7 @@ export default function Ecran8() {
                                 : "bg-[#0F044C]/20 text-[#0F044C]/40 cursor-not-allowed"
                         }`}
                     >
-                        Generează diploma
+                        Generează pașaportul cetățeanului democratic LEGISLAND.
                         <ArrowRight size={18} />
                     </button>
                 </div>
