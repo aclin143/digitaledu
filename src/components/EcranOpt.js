@@ -125,7 +125,7 @@ export default function Ecran8() {
                                 : "bg-[#0F044C]/20 text-[#0F044C]/40 cursor-not-allowed"
                         }`}
                     >
-                        Confirmare finala pentru a obține pașaportul
+                        Confirmare finală pentru a obține pașaportul
                         <ArrowRight size={18} />
                     </button>
                 </div>

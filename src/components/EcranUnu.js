@@ -249,7 +249,7 @@ export default function EcranUnu() {
                         {/* SCALE SECTION */}
                         <div className="space-y-4">
                             <label className="text-[15px] tracking-[0.4em] uppercase font-black text-[#fff]">
-                                Cât e RESPONSABIL sunt? (1-10)
+                                Cât de RESPONSABIL sunt? (1-10)
                             </label>
                             <div className="flex justify-between items-center gap-2">
                                 {[...Array(10)].map((_, i) => (
