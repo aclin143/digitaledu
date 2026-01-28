@@ -114,7 +114,7 @@ export default function Ecran7() {
                                 <div className="h-full bg-white transition-all" style={{ width: `${progress}%` }} />
                             </div>
                             <p className="mt-3 text-[11px] opacity-80 leading-relaxed">
-                                Că să continui: (bifează) selectează cel puțin o valoare și argumentează alegerea.
+                                Selectează o valoare și argumentează alegerea
                             </p>
                         </div>
                     </div>
