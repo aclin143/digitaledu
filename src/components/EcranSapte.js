@@ -114,7 +114,7 @@ export default function Ecran7() {
                                 <div className="h-full bg-white transition-all" style={{ width: `${progress}%` }} />
                             </div>
                             <p className="mt-3 text-[11px] opacity-80 leading-relaxed">
-                                Ca să mergi mai departe: bifezi cel puțin o valoare și scrii argument la fiecare bifă.
+                                Că să continui: (bifează) selectează cel puțin o valoare și argumentează alegerea.
                             </p>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ export default function Ecran7() {
 
                         <div>
                             <label className="font-black text-[#0F044C]">
-                                Ce m-a schimbat LEGISLAND?
+                                Cum m-a schimbat LEGISLAND?
                             </label>
                             <textarea
                                 value={q1}

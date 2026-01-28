@@ -234,7 +234,7 @@ export default function EcranUnu() {
                     <div className="p-5 sm:p-8 lg:p-10 space-y-10 bg-gradient-to-br from-transparent to-[#141E61]/10">
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <label className="text-[15px] tracking-[0.5em] uppercase font-black text-[#fff]">Ce inseamna a fi cetatean?</label>
+                                <label className="text-[15px] tracking-[0.5em] uppercase font-black text-[#fff]">Ce înseamnă a fi cetățean?</label>
                                 <span className="text-[9px] font-mono text-[#fff]/70 uppercase tracking-widest">Secțiune Obligatorie</span>
                             </div>
                             <textarea
@@ -249,7 +249,7 @@ export default function EcranUnu() {
                         {/* SCALE SECTION */}
                         <div className="space-y-4">
                             <label className="text-[15px] tracking-[0.4em] uppercase font-black text-[#fff]">
-                                Cat e RESPONSABIL sunt? (1-10)
+                                Cât e RESPONSABIL sunt? (1-10)
                             </label>
                             <div className="flex justify-between items-center gap-2">
                                 {[...Array(10)].map((_, i) => (

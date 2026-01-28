@@ -68,7 +68,7 @@ export default function EcranZero() {
             <div className="absolute top-6 left-6 z-20">
                 <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md shadow-[0_0_30px_rgba(238,238,238,0.12)]">
           <span className="text-sm tracking-widest uppercase text-[#EEEEEE]/90 ">
-            PASAPORT CIVIC
+             PAȘAPORT CIVIC
           </span>
                 </div>
             </div>
