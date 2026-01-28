@@ -214,7 +214,7 @@ export default function Ecran7() {
 
                         <div>
                             <label className="font-black text-[#0F044C]">
-                                Cum m-a schimbat LEGISLAND?
+                                Cum m-a schimbat jocul LEGISLAND?
                             </label>
                             <textarea
                                 value={q1}
